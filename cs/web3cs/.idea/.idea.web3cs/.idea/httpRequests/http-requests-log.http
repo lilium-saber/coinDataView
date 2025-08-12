@@ -1,0 +1,273 @@
+GET http://localhost:5090/api/getprice/bitcoin
+accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+<> 2025-08-12T152236.200.json
+
+###
+
+GET http://localhost:5090/api/test
+accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+<> 2025-08-12T152023.200.json
+
+###
+
+GET http://localhost:5090/api/test
+accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+<> 2025-08-12T151834.500.txt
+
+###
+
+GET http://localhost:5090/api/test
+accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+<> 2025-08-12T151657.500.txt
+
+###
+
+GET http://localhost:5090/api/test
+accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+<> 2025-08-12T151613.500.txt
+
+###
+
+GET http://localhost:5090/api/test
+accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+<> 2025-08-12T151416.500.txt
+
+###
+
+GET http://localhost:5090/api/test
+accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+<> 2025-08-12T151412.500.txt
+
+###
+
+GET http://localhost:5090/api/cryptocs/getcoininflux/bitcoin
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+<> 2025-08-12T144942.500.txt
+
+###
+
+GET http://localhost:5090/api/cryptocs/getcoininflux/bitcoin
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+###
+
+GET http://localhost:5090/api/cryptocs/getcoininflux/bitcoin
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+###
+
+GET http://localhost:5090/api/cryptocs/getcoininflux/bitcoin
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+###
+
+GET http://localhost:5090/api/cryptocs/getcoininflux
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+###
+
+GET http://localhost:5090/api/cryptocs/getcoininflux
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+###
+
+GET http://localhost:5090/api/cryptocs/getcoininflux
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+###
+
+GET http://localhost:5090/api/cryptocs/getcoininflux
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+###
+
+GET http://localhost:5090/api/cryptocs/getcoininflux
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+<> 2025-08-12T125423.500.txt
+
+###
+
+GET http://localhost:5090/api/cryptocs/getcoin
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+<> 2025-08-11T221307.200.json
+
+###
+
+GET http://localhost:5090/api/cryptocs/getcoin
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+<> 2025-08-11T221259.200.json
+
+###
+
+GET http://localhost:5090/api/cryptocs/getcoin
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+<> 2025-08-11T165942.200.json
+
+###
+
+GET http://localhost:5090/api/cryptocs/getcoin
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+<> 2025-08-11T165748.500.txt
+
+###
+
+GET http://localhost:5090/api/cryptocs/getcoin
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+<> 2025-08-11T165223.500.txt
+
+###
+
+GET http://localhost:5090/api/cryptocs/getcoin
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+<> 2025-08-11T165200.500.txt
+
+###
+
+GET http://localhost:5090/api/cryptocs/getcoin
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+<> 2025-08-11T164959.500.txt
+
+###
+
+GET http://localhost:5090/api/cryptocs/getcoin
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+<> 2025-08-11T164801.500.txt
+
+###
+
+GET http://localhost:5090/api/cryptocs/getcoin
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+<> 2025-08-11T164514.500.txt
+
+###
+
+GET http://localhost:5090/api/cryptocs/getcoin
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+<> 2025-08-11T164046.500.txt
+
+###
+
+GET http://localhost:5090/api/cryptocs/getcoin
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+###
+
+GET http://localhost:5090/api/cryptocs/getcoin
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+###
+
+GET http://localhost:5090/api/cryptocs/getcoin
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+###
+
+GET http://localhost:5090/api/cryptocs/getcoin
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+###
+
+GET http://localhost:5090/api/cryptocs/getcoin
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+###
+
+GET http://localhost:5090/todos/1
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+<> 2025-08-11T163258-1.200.json
+
+###
+
+GET http://localhost:5090/todos/
+Accept: application/json
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+<> 2025-08-11T163258.200.json
+
+###
+

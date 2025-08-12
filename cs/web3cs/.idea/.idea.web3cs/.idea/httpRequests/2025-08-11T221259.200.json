@@ -1,0 +1,28 @@
+{
+  "pricelist": [
+    {
+      "coinName": "bitcoin",
+      "coinPrice": "120089.00000"
+    },
+    {
+      "coinName": "dogecoin",
+      "coinPrice": "0.22971"
+    },
+    {
+      "coinName": "ethereum",
+      "coinPrice": "4282.22000"
+    },
+    {
+      "coinName": "solana",
+      "coinPrice": "179.65000"
+    },
+    {
+      "coinName": "tron",
+      "coinPrice": "0.34128"
+    },
+    {
+      "coinName": "sui",
+      "coinPrice": "3.76000"
+    }
+  ]
+}

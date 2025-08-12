@@ -1,0 +1,17 @@
+{
+  "coinname": "bitcoin",
+  "pricetime": [
+    {
+      "coinPrice": "118930",
+      "coinTime": "2025-08-12T06:28:02.5072612Z"
+    },
+    {
+      "coinPrice": "118947",
+      "coinTime": "2025-08-12T06:38:05.591145Z"
+    },
+    {
+      "coinPrice": "118929",
+      "coinTime": "2025-08-12T06:48:02.1930334Z"
+    }
+  ]
+}

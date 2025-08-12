@@ -1,0 +1,21 @@
+InfluxDB.Client.Core.Exceptions.BadRequestException: error @1:36-1:39: string is not Negatable
+
+error @1:39-1:40: undefined identifier h
+
+error @1:35-1:40: invalid binary operator <INVALID_OP>
+   at InfluxDB.Client.Core.Internal.AbstractQueryClient.<>c.<.cctor>b__26_1(Exception e)
+   at InfluxDB.Client.Core.Internal.AbstractQueryClient.Query(RestRequest query, Action`1 consumer, Action`1 onError, Action onComplete, CancellationToken cancellationToken)
+   at InfluxDB.Client.QueryApi.QueryAsync(Query query, String org, CancellationToken cancellationToken)
+   at web3cs.Service.incluxdb.InfluxdbService.QueryCoinPriceAsync(String coinName, Int32 timeRange) in /home/ca/program/web3/cs/web3cs/Service/incluxdb/InfluxdbService.cs:line 41
+   at Program.<>c.<<<Main>$>b__0_3>d.MoveNext() in /home/ca/program/web3/cs/web3cs/Program.cs:line 34
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Http.Generated.<GeneratedRouteBuilderExtensions_g>FD18264949B89A0FA5E86036E45F3DD08C66A07304E8F2D91DF9A7DFE84550DAD__GeneratedRouteBuilderExtensionsCore.<>c__DisplayClass2_0.<<MapGet0>g__RequestHandler|5>d.MoveNext() in /home/ca/program/web3/cs/web3cs/obj/Debug/net9.0/Microsoft.AspNetCore.Http.RequestDelegateGenerator/Microsoft.AspNetCore.Http.RequestDelegateGenerator.RequestDelegateGenerator/GeneratedRouteBuilderExtensions.g.cs:line 142
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+
+HEADERS
+=======
+Accept: application/json
+Host: localhost:5090
+User-Agent: IntelliJ HTTP Client/JetBrains Rider 2025.1.5
+Accept-Encoding: br, deflate, gzip, x-gzip

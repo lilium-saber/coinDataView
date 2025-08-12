@@ -1,0 +1,6 @@
+@web3cs_HostAddress = http://localhost:5090
+
+GET {{web3cs_HostAddress}}/api/getprice/bitcoin
+accept: application/json
+
+###

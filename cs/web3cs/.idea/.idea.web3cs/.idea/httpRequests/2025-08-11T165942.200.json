@@ -1,0 +1,28 @@
+{
+  "pricelist": [
+    {
+      "coinName": "btc",
+      "coinPrice": "114514"
+    },
+    {
+      "coinName": "doge",
+      "coinPrice": "0.235"
+    },
+    {
+      "coinName": "eth",
+      "coinPrice": "4000"
+    },
+    {
+      "coinName": "sol",
+      "coinPrice": "170"
+    },
+    {
+      "coinName": "xrp",
+      "coinPrice": "3.311"
+    },
+    {
+      "coinName": "sui",
+      "coinPrice": "3.149"
+    }
+  ]
+}
