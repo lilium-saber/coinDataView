@@ -1,4 +1,5 @@
 /cs/web3cs/bin/
 /cs/web3cs/obj/
+/cs/web3cs/.idea/
 /cs/web3cs/appsettings.json
 /go/*.exe
