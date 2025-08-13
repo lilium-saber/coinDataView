@@ -1,12 +1,11 @@
 import React from "react";
 import {AppBar, Box, Button, Toolbar, Typography} from "@mui/material";
-import {useAuth} from "../context/AuthContext";
+import {UseAuth} from "../context/AuthContext";
 
 
 
 export function TopStrip() {
-    const [isLoggedIn, setIsLoggedIn, username, setUsername] = useAuth();
-    const username = "human";
+    const { isLoggedIn, setIsLoggedIn, username, setUsername } = UseAuth();
     return(
         <AppBar position={'static'}>
             <Toolbar variant="dense">

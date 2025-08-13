@@ -4,6 +4,7 @@ import {AuthProvider} from "./context/AuthContext";
 import {HomePage} from "./pages/homepage";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {MarketPage} from "./pages/marketpage";
+import {CoinPriceTimeAnalyse} from "./component/CoinPriceTimeAnalyse";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/home" element={<HomePage />} />
                 <Route path="/market" element={<MarketPage />} />
+                <Route path="/price" element={<CoinPriceTimeAnalyse />} />
             </Routes>
         </BrowserRouter>
     </AuthProvider>
