@@ -29,7 +29,7 @@ export function UserLoginPage () {
         setError("");
         setLoading(true);
         try {
-            const res = await fetch("/api/user/login", {
+            const res = await fetch("http://localhost:11434/api/user/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(loginForm)
@@ -54,10 +54,16 @@ export function UserLoginPage () {
                 <Typography variant="h5" mb={2}>
                     {isLoginMode ? "user log in" : "user register"}
                 </Typography>
-                {isLoggedIn ?
-                    <Typography>
-                    you have logged in as {username}
-                    </Typography> : (
+                {isLoginMode ? (
+                    <Stack spacing={2}>
+                        <Typography>
+                        you have logged in as {username}
+                        </Typography> 
+                        <Button variant="contained" fullWidth onClick={() => setIsLoginMode(false)}>
+                            enter register
+                        </Button>
+                    </Stack>
+                    ) : (
                         <Stack spacing={2}>
                             <TextField
                                 label="UserId"
@@ -82,7 +88,7 @@ export function UserLoginPage () {
                                 fullWidth
                             />
                             <TextField
-                                label="UserEmail（can null）"
+                                label="UserEmail (can null)"
                                 name="UserEmail"
                                 value={registerForm.UserEmail}
                                 onChange={handleChange(registerForm, setRegisterForm)}

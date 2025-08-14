@@ -51,4 +51,4 @@ app.MapPost("api/user/login",
                 Results.Ok(new UserResponse { success = 1, message = jwtService.GenerateToken(userRequest.UserId) }) :
                 Results.Ok(new UserResponse { success = 0, message = "Invalid user ID or password" }));
 
-app.Run();
+app.Run("http://localhost:11434");

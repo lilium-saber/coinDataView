@@ -1,11 +1,14 @@
 import React from "react";
 import {AppBar, Box, Button, Toolbar, Typography} from "@mui/material";
 import {UseAuth} from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 
 
 export function TopStrip() {
     const { isLoggedIn, setIsLoggedIn, username, setUsername } = UseAuth();
+    const navigate = useNavigate();
+
     return(
         <AppBar position={'static'}>
             <Toolbar variant="dense">
@@ -21,7 +24,7 @@ export function TopStrip() {
                             welcome, {username}
                         </Typography>
                     ) : (
-                        <Button color={"inherit"} onClick={() => {setIsLoggedIn(true); setUsername("human")}}>
+                        <Button color={"inherit"} onClick={() => navigate("/login")}>
                             sign in
                         </Button>
                     )}
