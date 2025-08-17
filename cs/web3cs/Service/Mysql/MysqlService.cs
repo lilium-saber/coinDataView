@@ -3,6 +3,7 @@ using System.Security.Cryptography;
 using Microsoft.EntityFrameworkCore;
 using System.Text;
 using System.Threading.Tasks;
+using web3cs.Ults;
 
 namespace web3cs.Service.Mysql;
 
@@ -67,6 +68,30 @@ public class MysqlService {
         var hashBytes = SHA256.HashData(combined);
         var hash = Convert.ToBase64String(hashBytes);
         return hash == user.UserPassword;
+    }
+
+    public async Task<bool> AddUserWallet(string userId, string walletAddress) {
+        var existingWallet = await _dbcontext.UserWallets
+                                          .FirstOrDefaultAsync(x => x.UserId == userId && x.WalletAddress == walletAddress);
+        if (existingWallet != null) {
+            return false; // Wallet already exists for the user
+        }
+        var userWallet = new Model.User.UserWallet {
+            UserId = userId,
+            WalletAddress = walletAddress
+        };
+        await _dbcontext.UserWallets.AddAsync(userWallet);
+        await _dbcontext.SaveChangesAsync();
+        return true; // Wallet added successfully
+    }
+
+    public async Task<Ults.UserUlts.UserWallet?> GetUserWallet(string userId) {
+        var wallets = await _dbcontext.UserWallets
+                                      .Where(x => x.UserId == userId)
+                                      .Select(x => x.WalletAddress)
+                                     .ToListAsync();
+        return wallets.Count == 0 ? null : // No wallets found for the user
+            new UserUlts.UserWallet { walletAddress = wallets};
     }
 
 }

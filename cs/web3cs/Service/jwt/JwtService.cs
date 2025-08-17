@@ -29,21 +29,21 @@ public class JwtService {
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
 
-    public ClaimsPrincipal? ValidateToken(string token) {
+    public bool ValidateToken(string token) {
         var tokenHandler = new JwtSecurityTokenHandler();
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_secret));
 
         try {
-            var principal = tokenHandler.ValidateToken(token, new TokenValidationParameters {
+            tokenHandler.ValidateToken(token, new TokenValidationParameters {
                 ValidateIssuerSigningKey = true,
                 IssuerSigningKey = key,
                 ValidateIssuer = false,
                 ValidateAudience = false,
                 ClockSkew = TimeSpan.Zero
             }, out _);
-            return principal;
+            return true;
         } catch {
-            return null;
+            return false;
         }
     }
 }

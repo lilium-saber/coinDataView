@@ -12,4 +12,8 @@ public class UserUlts {
         public string? UserEmail { get; set; }
         public string? UserName { get; set; }
     }
+    
+    public class UserWallet {
+        public required List<string> walletAddress { get; set; }
+    }
 }

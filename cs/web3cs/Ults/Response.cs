@@ -16,3 +16,8 @@ public class UserResponse {
     public required int success { get; set; }
     public required string message { get; set; }
 }
+
+public class UserWalletResponse {
+    public required int success { get; set; }
+    public UserUlts.UserWallet? walletAddr { get; set; }
+}

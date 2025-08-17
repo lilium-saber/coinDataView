@@ -51,4 +51,27 @@ app.MapPost("api/user/login",
                 Results.Ok(new UserResponse { success = 1, message = jwtService.GenerateToken(userRequest.UserId) }) :
                 Results.Ok(new UserResponse { success = 0, message = "Invalid user ID or password" }));
 
+app.MapGet("api/user/getwallet/{userid}/{jwt}",
+           async (MysqlService mysqlService, JwtService jwtService, string userid, string jwt) => {
+                if (!jwtService.ValidateToken(jwt))
+                {
+                    return Results.Unauthorized();
+                }
+                var wallet = await mysqlService.GetUserWallet(userid);
+                return wallet != null ? 
+                     Results.Ok(new UserWalletResponse { success = 1, walletAddr = wallet }) : 
+                     Results.Ok(new UserWalletResponse { success = 0, walletAddr = null });
+           });
+
+app.MapGet("api/user/setwallet/{userid}/{addr}/{jwt}",
+           async (MysqlService mysqlService, JwtService jwtService, string userid, string addr, string jwt) => {
+               if (!jwtService.ValidateToken(jwt)) {
+                   return Results.Unauthorized();
+               }
+                var success = await mysqlService.AddUserWallet(userid, addr);
+                return success ? 
+                      Results.Ok(new UserResponse { success = 1, message = "Wallet address added successfully" }) : 
+                      Results.Ok(new UserResponse { success = 0, message = "Failed to add wallet address" });
+           });
+
 app.Run("http://localhost:11434");
