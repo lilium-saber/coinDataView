@@ -54,53 +54,56 @@ export function WalletMain() {
 
 
     if (isLoggedIn) {
-        <Box sx={{p: 3, maxWidth: 600, mx: "auto"}}>
-            <Box sx={{mb: 3}}>
-                <TextField
-                    fullWidth
-                    label="input eth wallet address"
-                    value={address}
-                    onChange={(e) => setAddress(e.target.value)}
-                    onKeyDown={handleKeyPress}
-                    placeholder="0x..."
-                    variant="outlined"
-                    sx={{mb: 2}}
-                />
-            </Box>
-            <Button onClick={getBalance} 
-                disabled={loading || !address.trim()}
-                size="large">
-                {loading ? "Loading..." : "Get Balance"}
-            </Button>
-        </Box>
-        {error && (
-                    <Alert severity="error" sx={{ mb: 3 }}>
-                        {error}
-                    </Alert>
-        )}
-        {balanceInfo && (
-            <Card sx={{mt: 3}}>
-                <CardContent sx={{ textAlign: 'center', py: 4 }}>
-                    <Typography variant="h6" color="text.secondary" gutterBottom>
-                        Balance for address: {balanceInfo.address}
-                    </Typography>
-                    <Typography variant="h3" color="text.primary" gutterBottom>
-                        {balanceInfo.balance_eth} ETH
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary" gutterBottom>
-                        {balanceInfo.balance_wei} WEI
-                    </Typography>
-                </CardContent>
-            </Card>
-        )}
-        {!balanceInfo && !error && !loading && (
-            <Box sx={{ mt: 3, textAlign: 'center' }}>
-                <Typography variant="body2" color="text.secondary">
-                    Enter an address to check the balance
-                </Typography>
-            </Box>
-        )}
-    } else {
+        return (
+            <div>
+                <Box sx={{p: 3, maxWidth: 600, mx: "auto"}}>
+                    <Box sx={{mb: 3}}>
+                        <TextField
+                            fullWidth
+                            label="input eth wallet address"
+                            value={address}
+                            onChange={(e) => setAddress(e.target.value)}
+                            onKeyDown={handleKeyPress}
+                            placeholder="0x..."
+                            variant="outlined"
+                            sx={{mb: 2}}
+                        />
+                    </Box>
+                    <Button onClick={getBalance} 
+                        disabled={loading || !address.trim()}
+                        size="large">
+                        {loading ? "Loading..." : "Get Balance"}
+                    </Button>
+                </Box>
+                {error && (
+                            <Alert severity="error" sx={{ mb: 3 }}>
+                                {error}
+                            </Alert>
+                )}
+                {balanceInfo && (
+                    <Card sx={{mt: 3}}>
+                        <CardContent sx={{ textAlign: 'center', py: 4 }}>
+                            <Typography variant="h6" color="text.secondary" gutterBottom>
+                                Balance for address: {balanceInfo.address}
+                            </Typography>
+                            <Typography variant="h3" color="text.primary" gutterBottom>
+                                {balanceInfo.balance_eth} ETH
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary" gutterBottom>
+                                {balanceInfo.balance_wei} WEI
+                            </Typography>
+                        </CardContent>
+                    </Card>
+                )}
+                {!balanceInfo && !error && !loading && (
+                    <Box sx={{ mt: 3, textAlign: 'center' }}>
+                        <Typography variant="body2" color="text.secondary">
+                            Enter an address to check the balance
+                        </Typography>
+                    </Box>
+                )}
+            </div>
+        )} else {
         return (
             <div>
                 <h1>Please log in</h1>
