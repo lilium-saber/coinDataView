@@ -37,7 +37,7 @@ export function UserLoginPage () {
             const data = await res.json();
             if (data.success === 1) {
                 document.cookie = `token=${data.message}; max-age=43200; path=/`;
-                UserLogin(loginForm.UserId);
+                UserLogin(loginForm.UserId, loginForm.UserId);
                 navigate("/");
             } else {
                 setError("id or password is wrong");

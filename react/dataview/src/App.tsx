@@ -7,6 +7,7 @@ import {MarketPage} from "./pages/marketpage";
 import {CoinPriceTimeAnalyse} from "./component/CoinPriceTimeAnalyse";
 import { UserLoginPage } from './pages/UserLoginPage';
 import {WalletPage} from "./pages/WalletPage";
+import {ConnectAddressPage} from "./pages/ConnetAddressPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
                 <Route path="/price" element={<CoinPriceTimeAnalyse />} />
                 <Route path="/wallet" element={<WalletPage />} />
                 <Route path="/login" element={<UserLoginPage />} />
+                <Route path='/connect' element={<ConnectAddressPage />} />
             </Routes>
         </BrowserRouter>
     </AuthProvider>
