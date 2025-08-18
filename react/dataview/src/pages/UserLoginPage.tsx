@@ -2,6 +2,7 @@ import React from "react";
 import { UseAuth } from "../context/AuthContext";
 import { TextField, Button, Stack, Typography, Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { TopStrip } from "../component/topstrip";
 
 export function UserLoginPage () {
     const {isLoggedIn, username, UserLogin} = UseAuth();
@@ -50,20 +51,100 @@ export function UserLoginPage () {
 
     if (isLoggedIn) {
         return (
-            <Box sx={{maxWidth: 400, mx: "auto", p: 3}}>
-                <Typography variant="h5" mb={2}>
-                    {isLoginMode ? "user log in" : "user register"}
-                </Typography>
-                {isLoginMode ? (
-                    <Stack spacing={2}>
-                        <Typography>
-                        you have logged in as {username}
-                        </Typography> 
-                        <Button variant="contained" fullWidth onClick={() => setIsLoginMode(false)}>
-                            enter register
-                        </Button>
-                    </Stack>
-                    ) : (
+            <div>
+                <TopStrip />
+                <Box sx={{maxWidth: 400, mx: "auto", p: 3}}>
+                    <Typography variant="h5" mb={2}>
+                        {isLoginMode ? "user log in" : "user register"}
+                    </Typography>
+                    {isLoginMode ? (
+                        <Stack spacing={2}>
+                            <Typography>
+                            you have logged in as {username}
+                            </Typography> 
+                            <Button variant="contained" fullWidth onClick={() => setIsLoginMode(false)}>
+                                enter register
+                            </Button>
+                        </Stack>
+                        ) : (
+                            <Stack spacing={2}>
+                                <TextField
+                                    label="UserId"
+                                    name="UserId"
+                                    value={registerForm.UserId}
+                                    onChange={handleChange(registerForm, setRegisterForm)}
+                                    fullWidth
+                                />
+                                <TextField
+                                    label="UserPassword"
+                                    name="UserPassword"
+                                    type="password"
+                                    value={registerForm.UserPassword}
+                                    onChange={handleChange(registerForm, setRegisterForm)}
+                                    fullWidth
+                                />
+                                <TextField
+                                    label="UserName"
+                                    name="UserName"
+                                    value={registerForm.UserName}
+                                    onChange={handleChange(registerForm, setRegisterForm)}
+                                    fullWidth
+                                />
+                                <TextField
+                                    label="UserEmail (can null)"
+                                    name="UserEmail"
+                                    value={registerForm.UserEmail}
+                                    onChange={handleChange(registerForm, setRegisterForm)}
+                                    fullWidth
+                                />
+                                <Stack direction="row" spacing={2} mt={2}>
+                                    <Button variant="contained" fullWidth>
+                                        confirm register
+                                    </Button>
+                                    <Button variant="outlined" fullWidth onClick={() => setIsLoginMode(true)}>
+                                        enter login
+                                    </Button>
+                                </Stack>
+                            </Stack>
+                        )
+                    }
+                </Box>
+            </div>
+            
+        );
+    } else {
+        return (
+            <div>
+                <TopStrip />
+                <Box sx={{maxWidth: 400, mx: "auto", p: 3}}>
+                    <Typography variant="h5" mb={2}>
+                        {isLoginMode ? "user log in" : "user register"}
+                    </Typography>
+                    {isLoginMode ? <Stack spacing={2}>
+                        <TextField
+                            label="UserId"
+                            name="UserId"
+                            value={loginForm.UserId}
+                            onChange={handleChange(loginForm, setLoginForm)}
+                            fullWidth
+                        />
+                        <TextField
+                            label="UserPassword"
+                            name="UserPassword"
+                            type="password"
+                            value={loginForm.UserPassword}
+                            onChange={handleChange(loginForm, setLoginForm)}
+                            fullWidth
+                        />
+                        <Stack direction="row" spacing={2} mt={2}>
+                            <Button variant="contained" fullWidth onClick={handleLogin} disabled={loading}>
+                                confirm login
+                            </Button>
+                            <Button variant="outlined" fullWidth onClick={() => setIsLoginMode(false)}>
+                                enter register
+                            </Button>
+                        </Stack>
+                    </Stack> : (
                         <Stack spacing={2}>
                             <TextField
                                 label="UserId"
@@ -88,7 +169,7 @@ export function UserLoginPage () {
                                 fullWidth
                             />
                             <TextField
-                                label="UserEmail (can null)"
+                                label="UserEmail（can null）"
                                 name="UserEmail"
                                 value={registerForm.UserEmail}
                                 onChange={handleChange(registerForm, setRegisterForm)}
@@ -103,82 +184,9 @@ export function UserLoginPage () {
                                 </Button>
                             </Stack>
                         </Stack>
-                    )
-                }
-            </Box>
-        );
-    } else {
-        return (
-            <Box sx={{maxWidth: 400, mx: "auto", p: 3}}>
-                <Typography variant="h5" mb={2}>
-                    {isLoginMode ? "user log in" : "user register"}
-                </Typography>
-                {isLoginMode ? <Stack spacing={2}>
-                    <TextField
-                        label="UserId"
-                        name="UserId"
-                        value={loginForm.UserId}
-                        onChange={handleChange(loginForm, setLoginForm)}
-                        fullWidth
-                    />
-                    <TextField
-                        label="UserPassword"
-                        name="UserPassword"
-                        type="password"
-                        value={loginForm.UserPassword}
-                        onChange={handleChange(loginForm, setLoginForm)}
-                        fullWidth
-                    />
-                    <Stack direction="row" spacing={2} mt={2}>
-                        <Button variant="contained" fullWidth onClick={handleLogin} disabled={loading}>
-                            confirm login
-                        </Button>
-                        <Button variant="outlined" fullWidth onClick={() => setIsLoginMode(false)}>
-                            enter register
-                        </Button>
-                    </Stack>
-                </Stack> : (
-                    <Stack spacing={2}>
-                        <TextField
-                            label="UserId"
-                            name="UserId"
-                            value={registerForm.UserId}
-                            onChange={handleChange(registerForm, setRegisterForm)}
-                            fullWidth
-                        />
-                        <TextField
-                            label="UserPassword"
-                            name="UserPassword"
-                            type="password"
-                            value={registerForm.UserPassword}
-                            onChange={handleChange(registerForm, setRegisterForm)}
-                            fullWidth
-                        />
-                        <TextField
-                            label="UserName"
-                            name="UserName"
-                            value={registerForm.UserName}
-                            onChange={handleChange(registerForm, setRegisterForm)}
-                            fullWidth
-                        />
-                        <TextField
-                            label="UserEmail（can null）"
-                            name="UserEmail"
-                            value={registerForm.UserEmail}
-                            onChange={handleChange(registerForm, setRegisterForm)}
-                            fullWidth
-                        />
-                        <Stack direction="row" spacing={2} mt={2}>
-                            <Button variant="contained" fullWidth>
-                                confirm register
-                            </Button>
-                            <Button variant="outlined" fullWidth onClick={() => setIsLoginMode(true)}>
-                                enter login
-                            </Button>
-                        </Stack>
-                    </Stack>
-                )}
-            </Box>
+                    )}
+                </Box>
+            </div>
         );
     }
 }

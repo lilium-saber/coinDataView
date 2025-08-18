@@ -14,9 +14,15 @@ export function TopStrip() {
             <Toolbar variant="dense">
                 <Box sx={{flexGrow: 1}} />
                 <Box sx={{display: "flex", justifyContent: "center", flexGrow: 1}}>
-                    <Button color={"inherit"}>home</Button>
-                    <Button color={"inherit"}>market</Button>
-                    <Button color={"inherit"}>wallet</Button>
+                    <Button color={"inherit"} onClick={() => navigate("/")}>
+                        home
+                    </Button>
+                    <Button color={"inherit"} onClick={() => navigate("/market")}>
+                        market
+                    </Button>
+                    <Button color={"inherit"} onClick={() => navigate("/wallet")}>
+                        wallet
+                    </Button>
                 </Box>
                 <Box sx={{flexGrow: 1, display: "flex", justifyContent: "flex-end"}}>
                     {isLoggedIn ? (
