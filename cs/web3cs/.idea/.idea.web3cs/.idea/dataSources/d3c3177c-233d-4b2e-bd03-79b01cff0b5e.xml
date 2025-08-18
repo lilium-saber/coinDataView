@@ -22,11 +22,11 @@
     <schema id="15" parent="1" name="7"/>
     <schema id="16" parent="1" name="8"/>
     <schema id="17" parent="1" name="9"/>
-    <string id="18" parent="2" name="btc"/>
-    <string id="19" parent="2" name="doge"/>
-    <string id="20" parent="2" name="eth"/>
-    <string id="21" parent="2" name="sol"/>
+    <string id="18" parent="2" name="bitcoin"/>
+    <string id="19" parent="2" name="dogecoin"/>
+    <string id="20" parent="2" name="ethereum"/>
+    <string id="21" parent="2" name="solana"/>
     <string id="22" parent="2" name="sui"/>
-    <string id="23" parent="2" name="xrp"/>
+    <string id="23" parent="2" name="tron"/>
   </database-model>
 </dataSource>

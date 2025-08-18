@@ -16,7 +16,11 @@ export function MarketTable() {
         fetch("http://localhost:11434/api/cry/getallpricenow")
             .then(res => res.json())
             .then(json => {
-                setData(json.pricelist);
+                const transformedData = json.pricelist.map((item: any) => ({
+                CoinName: item.coinName,
+                CoinPrice: item.coinPrice
+                }));
+                setData(transformedData);
                 setLoading(false);
             });
     };
@@ -39,15 +43,15 @@ export function MarketTable() {
             <Table>
                 <TableHead>
                     <TableRow>
-                        <TableCell>Coin Name</TableCell>
-                        <TableCell>Coin Price</TableCell>
+                        <TableCell align={"center"}>Coin Name</TableCell>
+                        <TableCell align={"center"}>Coin Price(USDT)</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {data.map((coin, index) => (
                         <TableRow key={index}>
-                            <TableCell>{coin.CoinName}</TableCell>
-                            <TableCell>{coin.CoinPrice}</TableCell>
+                            <TableCell align={"center"}>{coin.CoinName}</TableCell>
+                            <TableCell align={"center"}>{coin.CoinPrice}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>

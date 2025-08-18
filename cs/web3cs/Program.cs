@@ -11,6 +11,15 @@ using web3cs.Ults;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddCors(options =>
+                         {
+                             options.AddPolicy("AllowSpecificOrigins", policy =>
+                                                                       {
+                                                                           policy.AllowAnyOrigin()
+                                                                               .AllowAnyMethod()
+                                                                               .AllowAnyHeader();
+                                                                       });
+                         });
 builder.Services.ConfigureHttpJsonOptions(options =>
                                           {
                                               options.SerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
@@ -30,6 +39,7 @@ builder.Services.AddDbContext<MysqlDbcontext>(options =>
 builder.Services.AddScoped<MysqlService>();
 
 var app = builder.Build();
+app.UseCors("AllowSpecificOrigins");
 
 
 app.MapGet("api/cry/getpricetime/{coinname}",
@@ -68,10 +78,10 @@ app.MapGet("api/user/setwallet/{userid}/{addr}/{jwt}",
                if (!jwtService.ValidateToken(jwt)) {
                    return Results.Unauthorized();
                }
-                var success = await mysqlService.AddUserWallet(userid, addr);
-                return success ? 
-                      Results.Ok(new UserResponse { success = 1, message = "Wallet address added successfully" }) : 
-                      Results.Ok(new UserResponse { success = 0, message = "Failed to add wallet address" });
+               var success = await mysqlService.AddUserWallet(userid, addr);
+               return success ? 
+                   Results.Ok(new UserResponse { success = 1, message = "Wallet address added successfully" }) : 
+                   Results.Ok(new UserResponse { success = 0, message = "Failed to add wallet address" });
            });
 
 app.Run("http://localhost:11434");

@@ -11,8 +11,12 @@ namespace web3cs.Ults;
 [JsonSerializable(typeof(List<CoinPriceTime>))]
 [JsonSerializable(typeof(UserWalletResponse))]
 [JsonSerializable(typeof(UserUlts.UserWallet))]
+[JsonSerializable(typeof(UserUlts.UserLoginRequest))]
+[JsonSerializable(typeof(UserUlts.UserLogupRequest))]
+[JsonSerializable(typeof(UserUlts.UserWallet))]
 [JsonSerializable(typeof(string))]
 [JsonSerializable(typeof(List<string>))]
+[JsonSerializable(typeof(List<object>))]
 public partial class AppJsonContext : JsonSerializerContext
 {
 }

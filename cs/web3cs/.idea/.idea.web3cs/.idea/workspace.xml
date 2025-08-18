@@ -8,11 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8bb97fd4-ce71-48ea-b9be-cd6aab1367eb" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.web3cs/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.web3cs/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.web3cs/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.web3cs/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.web3cs/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.web3cs/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.web3cs/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.web3cs/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.web3cs/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.web3cs/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../react/dataview/src/component/WalletMain.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../react/dataview/src/component/WalletMain.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ults/JsonContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Ults/JsonContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web3cs.http" beforeDir="false" afterPath="$PROJECT_DIR$/web3cs.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../go/coinprices/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/../../go/coinprices/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +78,20 @@
     ]
   }
 }</component>
+  <component name="RunDashboard">
+    <option name="configurationStatuses">
+      <map>
+        <entry key="HttpClient.HttpRequestRunConfigurationType">
+          <value>
+            <map>
+              <entry key="web3cs | #1" value="STOPPED" />
+              <entry key="web3cs | #2" value="STOPPED" />
+            </map>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="RunManager" selected=".NET 启动设置配置文件.web3cs: http">
     <configuration name="web3cs | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/web3cs.http" executionIdentifier="#1" runType="运行单个请求">
       <method v="2" />
@@ -132,8 +147,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP 请求.web3cs | #1" />
         <item itemvalue="HTTP 请求.web3cs | #2" />
+        <item itemvalue="HTTP 请求.web3cs | #1" />
         <item itemvalue="HTTP 请求.web3cs | #3" />
         <item itemvalue="HTTP 请求.web3cs中的所有" />
       </list>
@@ -155,6 +170,8 @@
       <workItem from="1754981973710" duration="4456000" />
       <workItem from="1755239913865" duration="44000" />
       <workItem from="1755416552533" duration="3184000" />
+      <workItem from="1755502450638" duration="1085000" />
+      <workItem from="1755504435812" duration="904000" />
     </task>
     <servers />
   </component>

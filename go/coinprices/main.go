@@ -18,6 +18,13 @@ func main() {
 		Password: "",
 		DB:       0,
 	})
+	ctx := context.Background()
+	_, err := redisDb.Ping(ctx).Result()
+	if err != nil {
+		fmt.Printf("Redis连接失败: %v\n", err)
+		return
+	}
+	fmt.Println("Redis连接成功")
 	influxURL := "http://localhost:8086"
 	influxToken := "pkUoI3KQ6ThTCdAWrGYStrSS1X3F0IcqixsyHvINRzg2pStrGcgEAUaJ-40_-sPclEYIsk0Bc44UuHf5AdN2qg=="
 	influxOrg := "6"
@@ -26,7 +33,6 @@ func main() {
 	writeApi := influxClient.WriteAPIBlocking(influxOrg, influxBucket)
 	defer influxClient.Close()
 
-	ctx := context.Background()
 	ticker := time.NewTicker(5 * time.Minute)
 	defer ticker.Stop()
 	for {

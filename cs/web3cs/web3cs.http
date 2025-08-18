@@ -1,6 +1,9 @@
-@web3cs_HostAddress = http://localhost:5090
+@web3cs_HostAddress = http://localhost:11434
 
-GET {{web3cs_HostAddress}}/api/getprice/bitcoin
+GET {{web3cs_HostAddress}}/api/cry/getpricetime/bitcoin
 accept: application/json
 
 ###
+
+GET {{web3cs_HostAddress}}/api/cry/getallpricenow
+accept: application/json
