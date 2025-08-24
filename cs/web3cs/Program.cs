@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using System.Net.WebSockets;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +9,7 @@ using web3cs.Service.jwt;
 using web3cs.Service.Mysql;
 using web3cs.Service.redis;
 using web3cs.Ults;
+using web3cs.Service.WebSocket;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
@@ -37,9 +39,11 @@ builder.Services.AddScoped<JwtService>();
 builder.Services.AddDbContext<MysqlDbcontext>(options =>
                                                   options.UseMySQL(config["mysql"]!));
 builder.Services.AddScoped<MysqlService>();
+builder.Services.AddScoped<WebSocketService>();
 
 var app = builder.Build();
 app.UseCors("AllowSpecificOrigins");
+app.UseWebSockets();
 
 
 app.MapGet("api/cry/getpricetime/{coinname}",
@@ -48,6 +52,16 @@ app.MapGet("api/cry/getpricetime/{coinname}",
 
 app.MapGet("api/cry/getallpricenow", async (RedisService redisService) => 
                                          Results.Ok(new CoinPriceListResponse { pricelist = await redisService.GetCoinPriceListAsync() }));
+
+app.Map("api/cry/ws/getallprice", async (HttpContext content, RedisService redisService, WebSocketService webSocketService) => {
+    if (content.WebSockets.IsWebSocketRequest) {
+        using var webSocket = await content.WebSockets.AcceptWebSocketAsync();
+
+    } else {
+        content.Response.StatusCode = 400;
+    }
+
+});
 
 app.MapPost("api/user/register", async (MysqlService mysqlService, UserUlts.UserLogupRequest userRequest) => 
                                      Results.Ok(await mysqlService.
