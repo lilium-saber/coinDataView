@@ -11,25 +11,49 @@ export function MarketTable() {
     const [data, setData] = React.useState<CoinPriceList[]>([]);
     const [loading, setLoading] = React.useState(true);
 
-    const fetchCoinPriceNowData = () => {
-        setLoading(true);
-        fetch("http://localhost:11434/api/cry/getallpricenow")
-            .then(res => res.json())
-            .then(json => {
-                const transformedData = json.pricelist.map((item: any) => ({
-                CoinName: item.coinName,
-                CoinPrice: item.coinPrice
-                }));
-                setData(transformedData);
-                setLoading(false);
-            });
-    };
+    // const fetchCoinPriceNowData = () => {
+    //     setLoading(true);
+    //     fetch("http://localhost:11434/api/cry/getallpricenow")
+    //         .then(res => res.json())
+    //         .then(json => {
+    //             const transformedData = json.pricelist.map((item: any) => ({
+    //             CoinName: item.coinName,
+    //             CoinPrice: item.coinPrice
+    //             }));
+    //             setData(transformedData);
+    //             setLoading(false);
+    //         });
+    // };
 
     React.useEffect(() => {
-        fetchCoinPriceNowData();
-        const timer = setInterval(fetchCoinPriceNowData, 1000 * 60 * 5);
-        return () => clearInterval(timer);
+        let ws: WebSocket | null = null;
+        setLoading(true);
+        ws = new WebSocket("ws://localhost:11434/api/cry/ws/getallprice");
+        ws.onopen = () => {
+            setLoading(false);
+        }
+        ws.onmessage = (event) => {
+            try {
+                const json = JSON.parse(event.data);
+                const transformedData = json.pricelist.map((item: any) => ({
+                    CoinName: item.coinName,
+                    CoinPrice: item.coinPrice
+                }));
+                setData(transformedData);
+            } catch (e) {
+                console.error("Error parsing WebSocket message:", e);
+            }
+        }
+        ws.onerror = () => {
+            setLoading(false);
+        }
+        return () => {
+            if (ws) {
+                ws.close();
+            }
+        }
     }, []);
+
 
     if (loading) return <div>data is loading...</div>;
 

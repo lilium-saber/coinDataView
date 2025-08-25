@@ -1,8 +1,9 @@
 /cs/web3cs/bin/
 /cs/web3cs/obj/
 /cs/web3cs/.idea/
-
 /cs/web3cs/appsettings.json
+cs/web3cs/.idea/.idea.web3cs/.idea/dataSources.local.xml
+cs/web3cs/.idea/.idea.web3cs/.idea/workspace.xml
 
 /react/dataview/.idea/
 /react/dataview/node_modules/
@@ -12,3 +13,4 @@
 /go/*.exe
 .idea/
 .vscode/
+

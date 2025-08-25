@@ -1,7 +1,5 @@
 using System.Text.Json.Serialization;
 using System.Net.WebSockets;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 using StackExchange.Redis;
 using web3cs.Service.incluxdb;
@@ -53,14 +51,24 @@ app.MapGet("api/cry/getpricetime/{coinname}",
 app.MapGet("api/cry/getallpricenow", async (RedisService redisService) => 
                                          Results.Ok(new CoinPriceListResponse { pricelist = await redisService.GetCoinPriceListAsync() }));
 
-app.Map("api/cry/ws/getallprice", async (HttpContext content, RedisService redisService, WebSocketService webSocketService) => {
-    if (content.WebSockets.IsWebSocketRequest) {
-        using var webSocket = await content.WebSockets.AcceptWebSocketAsync();
-
+app.Map("api/cry/ws/getallprice", async (HttpContext context, RedisService redisService) => {
+    if (context.WebSockets.IsWebSocketRequest) {
+        using var webSocket = await context.WebSockets.AcceptWebSocketAsync();
+        var cancellationToken = CancellationToken.None;
+        while (webSocket.State == WebSocketState.Open) {
+            var priceList = await redisService.GetCoinPriceListAsync();
+            var response = new CoinPriceListResponse { pricelist = await redisService.GetCoinPriceListAsync() };
+            var json = System.Text.Json.JsonSerializer.Serialize(response);
+            var sendBuffer = System.Text.Encoding.UTF8.GetBytes(json);
+            await webSocket.SendAsync(sendBuffer, WebSocketMessageType.Text, true, cancellationToken);
+            await Task.Delay(30000, cancellationToken);
+            if (webSocket.CloseStatus.HasValue) {
+                break;
+            }
+        }
     } else {
-        content.Response.StatusCode = 400;
+        context.Response.StatusCode = 400;
     }
-
 });
 
 app.MapPost("api/user/register", async (MysqlService mysqlService, UserUlts.UserLogupRequest userRequest) => 
