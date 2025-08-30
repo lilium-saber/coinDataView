@@ -17,3 +17,12 @@ public class CoinPriceTime {
     public required string CoinPrice { get; set; }
     public required DateTime CoinTime { get; set; }
 }
+
+public class KLineData
+{
+    public required DateTime Time { get; set; }
+    public required double Open { get; set; }
+    public required double Close { get; set; }
+    public required double High { get; set; }
+    public required double Low { get; set; }
+}

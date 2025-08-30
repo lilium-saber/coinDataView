@@ -48,4 +48,31 @@ public class InfluxdbService {
                     CoinTime = time }
         ];
     }
+
+    public async Task<List<KLineData>> QueryKLineAsync(string coinName, string interval = "5m", int rangeHour = 1)
+    {
+        using var client = new InfluxDBClient(_url, _token);
+        var flux = $@"
+            from(bucket: ""{_bucket}"")
+            |> range(start: -{rangeHour}h)
+            |> filter(fn: (r) => r._measurement == ""coin_prices"" and r.coin == ""{coinName}"")
+            |> aggregateWindow(every: {interval}, fn: min, column: ""_value"", createEmpty: false)
+            |> yield(name: ""min"")
+            |> aggregateWindow(every: {interval}, fn: max, column: ""_value"", createEmpty: false)
+            |> yield(name: ""max"")
+            |> aggregateWindow(every: {interval}, fn: first, column: ""_value"", createEmpty: false)
+            |> yield(name: ""open"")
+            |> aggregateWindow(every: {interval}, fn: last, column: ""_value"", createEmpty: false)
+            |> yield(name: ""close"")
+        ";
+
+        var tables = await client.GetQueryApi().QueryAsync(flux, _org);
+
+        // 解析tables，组合成K线数据
+        var klineList = new List<KLineData>();
+        // 这里需要根据yield的name分组，合并open、close、min、max
+        // 具体解析略，可根据实际数据结构调整
+
+        return klineList;
+    }
 }

@@ -14,6 +14,8 @@ namespace web3cs.Ults;
 [JsonSerializable(typeof(UserUlts.UserLoginRequest))]
 [JsonSerializable(typeof(UserUlts.UserLogupRequest))]
 [JsonSerializable(typeof(UserUlts.UserWallet))]
+[JsonSerializable(typeof(KLineData))]
+[JsonSerializable(typeof(List<KLineData>))]
 [JsonSerializable(typeof(string))]
 [JsonSerializable(typeof(List<string>))]
 [JsonSerializable(typeof(List<object>))]
