@@ -44,8 +44,7 @@ app.UseCors("AllowSpecificOrigins");
 app.UseWebSockets();
 
 
-app.MapGet("api/cry/getpricetime/{coinname}",
-           async (InfluxdbService influxdbService, string coinname) => 
+app.MapGet("api/cry/getpricetime/{coinname}", async (InfluxdbService influxdbService, string coinname) => 
                Results.Ok(new CoinPriceTimeResponse { coinname = coinname, pricetime = await influxdbService.QueryCoinPriceAsync(coinname) }));
 
 app.MapGet("api/cry/getallpricenow", async (RedisService redisService) => 
@@ -56,7 +55,6 @@ app.Map("api/cry/ws/getallprice", async (HttpContext context, RedisService redis
         using var webSocket = await context.WebSockets.AcceptWebSocketAsync();
         var cancellationToken = CancellationToken.None;
         while (webSocket.State == WebSocketState.Open) {
-            var priceList = await redisService.GetCoinPriceListAsync();
             var response = new CoinPriceListResponse { pricelist = await redisService.GetCoinPriceListAsync() };
             var json = System.Text.Json.JsonSerializer.Serialize(response);
             var sendBuffer = System.Text.Encoding.UTF8.GetBytes(json);
